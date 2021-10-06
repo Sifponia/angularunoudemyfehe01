@@ -1,0 +1,49 @@
+<p>heroe works!</p>
+
+<h1>{{heroe.length}}</h1>
+
+<div class="tableHeroes">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Daño</th>
+      <th scope="col">Vida</th>
+      <th scope="col">Cambiar Nombre</th>
+      <th scope="col">Eliminar</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hero of heroe">
+      <th scope="row">{{hero.id}}</th>
+      <td>{{hero.name}} </td>
+      <td>{{hero.dano}}</td>
+      <td>{{hero.vida}}</td>
+      <td>
+        <button type="button" (click)="cambiarNombre()" class="btn  btn-outline-primary">Cambiar nombre</button>
+      </td>
+      <td>
+        <button type="button" (click)="removerElemento()" class="btn  btn-outline-danger">Eiminar</button>
+      </td>
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="valida; else noBorrado" class="tableHeroes">
+  <h3>Heroes borrados</h3>
+  <p>{{nameBDelete}}</p>
+
+</div>
+
+<div class="tableHeroes">
+  <ng-template #noBorrado>
+    <h3 class="tableHeroes">No borrado</h3>
+  </ng-template>
+</div>
+
